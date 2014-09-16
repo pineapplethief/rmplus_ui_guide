@@ -1,0 +1,806 @@
+#extend_params {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+#extend_params p>label {
+  min-width: 270px;
+  display: inline-block;
+  padding: 0 5px;
+  white-space: nowrap;
+}
+
+a.lu_button.lb_graph_hidden>span.lu_button_main:after {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #CCC;
+  background-image: url(../images/preview.png);
+  background-color: #EEE;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: -10px;
+  border-radius: 2px;
+}
+
+span.lu_button_main {
+  display: inline-block;
+}
+
+div.se>ul {
+  margin: 0;
+  padding-left: 25px;
+}
+
+div.lu_button_box_tab {
+  background-color: transparent;
+  border:none;
+  padding: 0px;
+}
+
+form.fileover {
+  background-color: lavender;
+}
+
+#in_issue_form {
+  display: block;
+}
+
+.def_values {
+  max-width: 250px;
+}
+
+.lu-history-button-img {
+  color: #295200;
+}
+
+.lu_buttons_issue_form_errors {
+  text-align: left;
+  margin: 5px 0;
+  padding: 4px;
+/*  background-color: #FFE6C0;
+  background-image: url(../images/warn_orange.png);
+  background-position: 6px 50%;
+  background-repeat: no-repeat;
+  padding: 7px;
+  padding-left: 30px;
+  color: #FF5200;
+  border: solid 1px #FDA175;*/
+}
+
+.lu_buttons_issue_form_errors:empty {
+  display: none;
+}
+
+.lu_form_bottom_buttons {
+  margin-top: 10px;
+}
+
+.lu_field_max {
+  float: left;
+  margin-left: -90px;
+  padding-left: 90px;
+  width: 100%;
+}
+.lu_label_max {
+  float: left;
+  width: 90px;
+}
+.lu_bbox {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.lu_input_100 {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.lu_input_wide {
+  padding: 3px;
+  margin: 0;
+}
+
+input#time_entry_comments_lu {
+  width: 90%;
+}
+
+.select-all {
+  background-image: url(../images/node_select_all.png);
+}
+
+.in_form_button {
+  margin: 0px;
+  padding: 3px 12px;
+}
+
+.preview_link_img {
+  background-image: url(../images/preview.png);
+  background-position: 3px 50%;
+  background-repeat: no-repeat;
+  padding-left: 24px;
+  float: right;
+  margin-right: 10px;
+}
+
+.canceled-detail li {
+  list-style-image: url(../images/removed.png);
+}
+
+.rollback-detail li {
+  list-style-image: url(../images/redone.png);
+}
+
+.wrapped_pre {
+  font-family: Arial;
+  font-size: 13px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+#lu_graph {
+  background: #333;
+  height: 550px;
+  width: 800px;
+}
+
+.lu_label {
+  width: 80px;
+  display: inline-block;
+}
+
+.H {
+  overflow: hidden;
+}
+
+.I {
+  display: none;
+}
+
+.L {
+  /*display: block;*/
+  float: left;
+}
+
+.R {
+  /*display: block;*/
+  float: right;
+}
+
+.no_list li {
+  list-style: none;
+}
+
+.checklist-index {
+  padding: 0;
+}
+
+li.one-checklist {
+  list-style: none;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+li.one-checklist.lu_edit_block {
+  border: 1px dotted #ccc;
+}
+
+.lu_checklist_items {
+  padding: 0;
+  margin: 5px 0;
+}
+
+.lu_checklist_items li {
+  margin-left: 20px;
+}
+
+.lu_button_selector {
+  width: 100%;
+}
+
+.lu_buttons_list {
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.lu_checklist_name {
+  overflow: hidden;
+  padding: 5px 0;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border-bottom: 1px dotted #ccc;
+}
+
+.lu_list_edit {
+  list-style: none;
+}
+
+.lu_list_edit li {
+  margin-left: 0;
+}
+
+input.lu_wide_input {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 5px 0;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.lu_buttons_list {
+  margin-bottom: 8px;
+}
+
+.mrg_7_0, p.mrg_7_0 {
+  margin: 7px 0;
+}
+
+.m_5_0 {
+  margin: 5px 0;
+}
+
+.lu_del_link:empty {
+  display: none;
+}
+
+.lu_spacer {
+  padding: 9px;
+}
+
+.lu_form_spacer {
+  margin: 0 9px 0 0;
+}
+
+.lu_selected_statues {
+  clear: left;
+  padding-top: 8px;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.half_spacer {
+  margin: 5px;
+}
+
+li.lu_btn_row {
+  overflow: hidden;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(204, 204, 204);
+  padding: 5px 0px 3px;
+  cursor: move;
+  display: list-item;
+}
+
+.graph_area {
+  clear: left;
+}
+
+.lu_graph_frame {
+  padding: 2px;
+  border: 1px solid #ccc;
+}
+
+.lu_panel {
+  border: 1px solid #CCC;
+  overflow: hidden;
+  background: #fefefe;
+  margin: 10px 10px 10px 0px;
+}
+
+.lu_editors {
+  overflow:hidden;
+  padding: 5px 0px;
+  margin: 2px;
+}
+
+.lu_form_container {
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  top: 45px;
+  margin-left: -450px;
+  min-width: 900px;
+  display: none;
+  border: none;
+  background: transparent;
+  padding: 10px;
+}
+
+.lu_button_form {
+  overflow:hidden;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  padding: 10px;
+}
+
+.lu_preview_area {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.option_block {
+  border: 1px solid #CCC;
+  overflow: hidden;
+  background: #fefefe;
+  margin: 10px 0px;
+}
+
+.action_block {
+  border: 1px solid #CCC;
+  overflow: hidden;
+  background: #fefefe;
+  margin: 10px 0px;
+  cursor: move;
+}
+
+.action_display {
+  border: 1px solid #CF9393;
+}
+
+.opal {
+  opacity: 0.55;
+}
+
+.action_form {
+  clear: left;
+}
+
+.button_action {
+  width: 200px;
+}
+
+.button_values {
+  width: 200px;
+}
+
+.button_action_form {
+  display: none;
+  border-top: 1px solid #D7D7D7;
+  padding: 0px 10px;
+  padding-bottom: 3px;
+  margin: 0px -3px 0px -3px;
+  background-color: #F6F6F6;
+}
+
+.drag_handler {
+  background: #eee;
+  overflow:hidden;
+  margin: -27px -20px 0px -20px;
+  border-bottom: 1px solid #CCC;
+  height:25px;
+  cursor: move;
+}
+
+.form_closer {
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+  background-image: url(../images/close_cross.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  margin-bottom: 2px;
+}
+
+.invert_part {
+  padding-left: 5px;
+}
+
+.right-fader{ background-image: url(../images/grad_24px.png); }
+
+.icon-invert, .icon-invert:visited, .icon-invert:link, .icon-invert:hover { background-image: url(../images/arrow_switch.png); }
+
+.icon-only, .icon-only:visited, .icon-only:link, .icon-only:hover {
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 11px;
+  text-decoration:none;
+  border:0px;
+}
+
+.icon-only-pick, .icon-only-pick:visited, .icon-only-pick:link, .icon-only-pick:hover {
+  background-position: 0% 45%;
+  background-repeat: no-repeat;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 11px;
+  text-decoration:none;
+  border:0px;
+}
+
+.icon-show {
+  background-image: url(../images/show.png);
+}
+
+.icon-hide {
+  background-image: url(../images/preview.png);
+}
+
+.icon-filter {
+  background-image: url(../images/search_green.png);
+}
+
+.icon-cog-edit{
+  background-image: url(../images/cog_edit.png);
+}
+
+.icon-inform {
+  background-image: url(../images/inform.png);
+}
+
+.icon-remove {
+  background-image: url(../images/remove.png);
+  padding-right: 5px;
+}
+
+.right-icon {
+  padding-right: 5px;
+}
+
+.icon-lu-checklist {
+  background-image: url(../images/check_lists.png);
+}
+
+.lu_item_saved_blink {
+  border-radius: 2px;
+  padding: 3px;
+  background-color: #FFD790;
+}
+
+/* buttons style classes */
+.btn_container {
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+.button_bar {
+  width: 100%;
+  padding: 0px;
+  margin-top: -2px;
+}
+
+a.lu_button, .lu_button {
+  display: block;
+  padding: 5px 7px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #F6F6F6;
+}
+
+a.lu_button_main, .lu_button_main {
+  font-size: 12px;
+  margin-right: 7px;
+}
+
+a.lu_button_fast, .lu_button_fast {
+  font-size: 12px;
+  padding: 5px 4px;
+  border-left: 1px solid #ccc;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: url(../images/fast_actions.png);
+  background-position: -2px 50%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+a.lu_button_fast:hover, .lu_button_fast:hover {
+  background-color: #E6FFCF;
+  background-position: -18px 50%;
+}
+
+div.lb_preview {
+  cursor: default;
+}
+
+div.lb_preview a.lu_button, div.lb_preview a.lu_button:hover, div.lb_preview a.lu_button:active {
+  cursor: default;
+  color: #333;
+}
+
+a.no_redirect > span.lu_button_main {
+  border-bottom: 1px dotted;
+}
+
+.no_redirect > span.lu_button_main {
+  border-bottom: 1px dotted;
+}
+
+.no_redirect:hover > span.lu_button_main {
+  border-bottom: 1px dotted;
+}
+
+a.no_redirect:hover > span.lu_button_main {
+  border-bottom: 1px dotted;
+}
+
+.no_inputs > span.lu_button_main {
+  border-bottom: 1px solid;
+}
+
+a.no_inputs > span.lu_button_main {
+  border-bottom: 1px solid;
+}
+
+.no_inputs:hover > span.lu_button_main {
+  border-bottom: 1px solid;
+}
+
+a.no_inputs:hover > span.lu_button_main {
+  border-bottom: 1px solid;
+}
+
+a.lu_button_locked {
+  border: 1px solid #CCC;
+  background-color: #F8DFDF;
+}
+
+a.lu_img, .lu_img {
+  background-position: 3px 50%;
+  background-repeat: no-repeat;
+  padding-left: 24px;
+}
+
+a.no_border {
+  border: 0;
+}
+/* ============== buttons styles ============== */
+
+.btn_redo {
+  background-image: url(../images/redo.png);
+}
+
+.btn_fav {
+  background-image: url(../images/fav.png);
+}
+
+.btn_comment {
+  background-image: url(../images/comment.png);
+}
+
+.btn_search {
+  background-image: url(../images/search_green.png);
+}
+
+.btn_time {
+  background-image: url(../images/time.png);
+}
+
+.btn_erase_title {
+  background-image: url(../images/clock.png);
+}
+
+.btn_to_turn {
+  background-image: url(../images/queue.png);
+}
+
+.btn_assign {
+  background-image: url(../images/hand_right.png);
+}
+
+.btn_new {
+  background-image: url(../images/new.png);
+}
+
+.btn_put_off {
+  background-image: url(../images/hand.png);
+}
+
+.btn_lock {
+  background-image: url(../images/lock.png);
+}
+
+.btn_check {
+  background-image: url(../images/check.png);
+}
+
+.btn_clock {
+  background-image: url(../images/clock.png);
+}
+
+.btn_clock_plus {
+  background-image: url(../images/clock_plus.png);
+}
+
+.btn_pause {
+  background-image: url(../images/pause.png);
+}
+
+.btn_to_check {
+  background-image: url(../images/to_check.png);
+}
+
+.btn_work {
+  background-image: url(../images/work.png);
+}
+
+.btn_percent {
+  background-image: url(../images/percent.png);
+}
+
+.btn_complete {
+  background-image: url(../images/thumb_up.png);
+}
+
+.btn_check {
+  background-image: url(../images/check.png);
+}
+
+.btn_change_checker {
+  background-image: url(../images/users.png);
+}
+
+.btn_in_work {
+  background-image: url(../images/in_work.png);
+}
+
+.btn_user {
+  background-image: url(../images/user.png);
+}
+
+.btn_speech {
+  background-image: url(../images/speech.png);
+}
+
+.btn_answer {
+  background-image: url(../images/answer.png);
+}
+
+.btn_change_schedule_time {
+  background-image: url(../images/change_schedule_time.png);
+}
+
+.btn_checked {
+  background-image: url(../images/checked.png);
+}
+
+.btn_claim_close {
+  background-image: url(../images/claim_close.png);
+}
+
+.btn_close {
+  background-image: url(../images/close.png);
+}
+
+.btn_error_conversation {
+  background-image: url(../images/error_conversation.png);
+}
+
+.btn_executed {
+  background-image: url(../images/executed.png);
+}
+
+.btn_get_info {
+  background-image: url(../images/get_info.png);
+}
+
+.btn_in_production {
+  background-image: url(../images/in_production.png);
+}
+
+.btn_in_queue {
+  background-image: url(../images/in_queue.png);
+}
+
+.btn_on_check {
+  background-image: url(../images/on_check.png);
+}
+
+.btn_proceed  {
+  background-image: url(../images/proceed.png);
+}
+
+.btn_return_back {
+  background-image: url(../images/return_back.png);
+}
+
+.btn_return_to_author {
+  background-image: url(../images/return_to_author.png);
+}
+
+.btn_brick {
+  background-image: url(../images/stop.png);
+}
+
+.btn_stop_for_a_time {
+  background-image: url(../images/stop_for_a_time.png);
+}
+
+.btn_to_head {
+  background-image: url(../images/to_head.png);
+}
+
+.btn_to_me {
+  background-image: url(../images/to_me.png);
+}
+
+.btn_to_work {
+  background-image: url(../images/to_work.png);
+}
+
+.btn_update_percent {
+  background-image: url(../images/update_percent.png);
+}
+
+.btn_return_to_queue {
+  background-image: url(../images/return_to_queue.png);
+}
+
+.btn_copy {
+  background-image: url(../images/copy.png);
+}
+
+.btn_warn_red {
+  background-image: url(../images/warn_red.png);
+}
+
+.btn_warn_orange {
+  background-image: url(../images/warn_orange.png);
+}
+
+.btn_check_lists {
+  background-image: url(../images/check_lists.png);
+}
+
+.btn_checked_box {
+  background-image: url(../images/checked_box.png);
+}
+
+.btn_unchecked_box {
+  background-image: url(../images/unchecked_box.png);
+}
+
+.btn_chart_organisation {
+  background-image: url(../images/chart_organisation.png);
+}
+
+.btn_filter {
+  background-image: url(../images/filter.png);
+}
+
+.btn_visible {
+  background-image: url(../images/show.png);
+}
+
+.btn_invisible {
+  background-image: url(../images/preview.png);
+}
+
+#button_panel
+{
+  background-color: #fff;
+}
+.lb_fixed
+{
+  position: fixed;
+  z-index: 8000;
+
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.07) inset;
+  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.07) inset;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.07) inset;
+    /*-webkit-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.1) inset;
+            box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.1) inset;*/
+}
+
+div.box.lb-invisi-box {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}

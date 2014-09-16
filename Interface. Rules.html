@@ -1,0 +1,1002 @@
+<html style="background-image: none;">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/jquery-ui-1.9.2.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/theme_application.css">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/select2.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/quartermonthpicker.css">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/a_common_styles.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/modal_windows.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/hint.css">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/ajax_counters.css">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/ldap_users_sync.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/luxury_buttons.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/service_desk.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/kpi.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/magic_my_page.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/usability.css">
+
+    <script type="text/javascript" src="javascripts/jquery-1.8.3-ui-1.9.2-ujs-2.0.3.js"></script>
+    <script type="text/javascript" src="javascripts/select2.js"></script>
+    <script type="text/javascript" src="javascripts/select2_locale_ru.js"></script>
+    <script type="text/javascript" src="javascripts/modal_windows.js"></script>
+
+  </head>
+  <style type="text/css">
+
+    html body table {
+      font-size: 10pt;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .styleguide {
+      border: 1px solid #E4E4E4;
+      border-collapse: collapse;
+    }
+
+    .styleguide td, table.styleguide th {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    a.issue_btn {
+      display: block;
+      padding: 5px 7px;
+      border: 1px solid #CCC;
+      text-decoration: none;
+      cursor: pointer;
+      background-color: #F6F6F6;
+      background-position: 3px 50%;
+      background-repeat: no-repeat;
+      padding-left: 24px;
+      float: left;
+    }
+
+    a.issue_btn:hover {
+      border-bottom-color: #CCC;
+    }
+
+    a.hand_right {
+      background-image: url(./images/hand_right.png);
+    }
+
+    .styleguide.list2 td:first {
+      border-width: 0px;
+      padding: 0px;
+    }
+
+    .styleguide .list2 td, .styleguide .list2 th {
+      border: 0px;
+      padding: 5px 0px;
+    }
+    .styleguide.list2 {
+      border-width: 0px;
+      width: 100%;
+      margin-bottom: 4px;
+    }
+
+    .styleguide .list2 td:first-child {
+      text-align: right;
+    }
+
+    .styleguide .list2 td:first-child:before {
+      content: ".";
+    }
+
+    .styleguide .list2 td:nth-child(2):before {
+      content: "\00a0—\00a0";
+    }
+    .styleguide .list2 td:nth-child(3):after {
+      content: ".";
+    }
+
+    div.li {
+      padding-bottom: 5px;
+    }
+
+    td.no-info {
+      text-align: center;
+    }
+    td.no-info:before {
+      content: "—";
+    }
+
+    tr.highlighted {
+      background-color: #f9f2f2;
+    }
+
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('select.select2, input[type="hidden"], input.ui-autocomplete-input').each(function(){
+        if (this.tagName.toLowerCase() === 'select') {
+          var select2_width = this.getAttribute('data-select2-width');
+          if ( select2_width != undefined) {
+            $(this).select2({width: select2_width, allowClear: true})
+          }
+          else {
+            $(this).select2({width: '400px', allowClear: true});
+          }
+        }
+      });
+
+      $('#modal-window').on('click', function(){
+        $('#bs-modal-dynamic').removeClass('I');
+      });
+      $('#modal-close-button').on('click', function(){
+        $('#bs-modal-dynamic').addClass('I');
+      });
+
+      $('#modal-link-kpi').on('click', function(){
+        $('#modal-kpi').removeClass('I');
+      });
+      $('#modal-close-button').on('click', function(){
+        $('#modal-kpi').addClass('I');
+      });
+
+    });
+
+  </script>
+  <body>
+    <h2>Общие правила верстки</h2>
+    <p>
+      <ol style="width: 700px;">
+        <li>
+          Отступы контента от контейнера контента (div#content): div#content { padding: 6px 10px 10px 5px; }
+        </li>
+        <li>
+          Желательно выносить название поля в форме выше самого поля, либо справа от него. Кроме того, если в форме одно поле, то кнопка <strong>Сохранить</strong> должна располагаться на одном уровне с ним. Желательно, чтобы кнопка и поле были одной высоты. Например:
+          <p style="margin-top: 6px;">
+            <label for="_user_department_id">
+            <div style="margin: 0px 0px 5px 0px;">
+              Отфильтровать по департаменту
+            </div>
+            <select class="select2"  id="_user_department_id" name="[user_department_id]" tabindex="-1">
+              <option value="">&nbsp;</option>
+              <option value="91">Агентство Недвижимость</option>
+              <option value="88">Аптека  в п.Врангель</option>
+              <option value="114">Аптека в ТД Игнат (Владивосток)</option>
+              <option value="77">Аптека на Алеутской (Владивосток)</option>
+              <option value="113">Аптека на Волгоградской (Владивосток)</option>
+              <option value="115">Аптека на Володарского (Уссурийск)</option>
+              <option value="64">Аптека на Вязовой (Владивосток)</option>
+              <option value="127">Аптека на Жуковского (Арсеньев)</option>
+              <option value="76">Аптека на Ладыгина (Владивосток)</option>
+              <option value="2">Аптека на Молодежной (Владивосток)</option>
+              <option value="55">Аптека на Находкинском проспекте</option>
+              <option value="84">Аптека на Некрасовской (Владивосток)</option>
+              <option value="40">Юридический отдел</option>
+            </select>
+            <input name="commit" type="submit" value="Применить" class="ajax_hidden_emmiter" style="display: inline-block; margin-left: 0.5em; height: 28px;">
+          </p>
+        </li>
+        <li>
+            У каждого поля на форме обязательно должен быть сопутствующий <strong>label</strong> с корректно заполенным аттрибутом for и описанием назначения поля.
+        </li>
+        <li>
+          При открытии страницы или модального окна с формой фокус должен автоматически переноситься на первый элемент формы. Должна быть возможность переключаться между элементами формы с помощью нажатия <strong>tab</strong> (см. атрибут tabindex), и отправлять заполненную форму по нажатию клавиши <strong>enter</strong>.
+        </li>
+        <li>
+          Если в форме несколько элементов, они должны быть выровнены, например:
+          <p id="req_priority" style="margin-top: 6px;">
+            <label for="sd_request_sd_request_priority_id">Приоритет<span class="required"> *</span></label>
+            <select id="sd_request_priority_id" name="sd_request[sd_request_priority_id]" style="height: 28px;"><option value="">&nbsp;</option>
+              <option value="1">Низкий</option>
+              <option value="2" selected="selected">Нормальный</option>
+              <option value="3">Высокий</option>
+              <option value="4">Срочный</option>
+            </select>
+            <select class="I" id="req_priorities_all" name="req_priorities_all">
+              <option data-department="" value="" title=""></option>
+              <option data-types="8,9,11,12,13,14,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,91,92,10" value="3">Высокий</option>
+              <option data-types="8,9,11,12,13,14,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,91,92" value="1">Низкий</option>
+              <option data-types="8,9,10,11,12,13,14,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,91,92" value="2" selected="">Нормальный</option>
+              <option data-types="8,14,15,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,91,92" value="4">Срочный</option></select>
+          </p>
+          <p id="req_initiator">
+            <label for="s2id_autogen1">Инициатор<span class="required"> *</span></label>
+            <select id="sd_request_initiator_id" name="sd_request[initiator_id]" style="width: 220px;" tabindex="-1" class="select2">
+              <option value="500">Абдразаков Максим</option>
+              <option value="925">Аблеев Владимир</option>
+              <option value="609">Абрамова Кристина</option>
+              <option value="991">Абрамова Лилия</option>
+              <option value="832">Авдеева Елена</option>
+            </select>
+          </p>
+        </li>
+        <li>
+          Простые элементы формы и аналогичные элементы с <strong>Select2</strong> на одной форме должны быть идентичны по ширине, высоте, и т.д.
+        </li>
+        <li>
+          Запрещено указывать число элементов в счетчике в виде текста в круглых скобках. Вместо этого нужно использовать соответствующий класс счетчика <strong>count</strong>.
+        </li>
+        <li>
+          Картинки аватаров пользователей создаются при помощи метода gravatar, размер передается параметром size, возможные значения size: 10, 14, 16, 24, 50, 300 пикселей.
+        </li>
+      </ol>
+    </p>
+
+
+    <table class="styleguide">
+      <tr>
+        <th>Элемент интерфейса</th>
+        <th style="width: 35%;">Конечный внeшний вид</th>
+        <th>Описание</th>
+        <th style="width: 20%;">Какие класы применять</th>
+        <th style="width: 20%;">Когда использовать</th>
+      </tr>
+
+      <tr>
+        <td>Кнопка для действия над сущностью, не вызывающая перезагрузку страницы</td>
+        <td>
+          <a href="#" class="issue_btn in_link hand_right" data-button-id="99" data-issue-id="22414" data-lock-version="5">
+            <span class="lu_button_main">Назначить</span>
+          </a>
+        </td>
+        <td>
+          <div class="li">Для образования элемента необходимо использовать тег <b>a</b> и <b>span</b>.</div>
+          <div class="li">Цвет и шрифт текста должен наследоваться от цвета и шрифта ссылок на странице.</div>
+          <div class="li">Изображение иконки должно определяться отдельным классом.</div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>issue_btn</td> <td></td> <td>Определяет, что это кнопка</td></tr>
+            <tr><td>in_link</td> <td></td> <td>Определяет, что кнопка не производит перезагрузки страницы</td></tr>
+            <tr><td>hand_right </td> <td></td> <td>Определяет иконку кнопки</td></tr>
+          </table>
+        </td>
+        <td>
+          Использовать в тех случаях, когда необходимо совершить действие (изменить) над какой-нибудь сущностью (задачей, заявкой, документом и т.д.) и нажатие на кнопку не приводит к перезагрузке страницы в браузере.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Кнопка для действия над сущностью, вызывающая перезагрузку страницы</td>
+        <td>
+          <div class="L btn_container fake_container" id="btn-child-request">
+            <a href="#" class="lu_button lu_img btn_child_request no_inputs">
+              <span class="lu_button_main">Создать заявку</span>
+            </a>
+          </div>
+        </td>
+
+        <td>
+          <div class="li">
+            Для образования элемента необходимо использовать теги <strong>a</strong> и <strong>span</strong>, завернув их в div-сontainer:
+            <pre>
+&lt;div class=&quot;L btn_container fake_container&quot; id=&quot;btn-child-request&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;lu_button lu_img btn_child_request no_inputs&quot;&gt;
+    &lt;span class=&quot;lu_button_main&quot;&gt;Создать заявку&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+            </pre>
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>lu_button</td> <td></td> <td>Описывает свойства кнопки</td></tr>
+            <tr><td>lu_img</td> <td></td> <td>Задает отступом место под иконку и отступ для иконки от края кнопки</td></tr>
+            <tr><td>btn_child_request</td> <td></td> <td>Указывает путь для иконки</td></tr>
+            <tr><td>no_inputs и .lu_buttom_main</td> <td></td> <td>Параметры текста ссылки: подчеркивание, размер шрифта, отступ от правого края кнопки</td></tr>
+          </table>
+        </td>
+        <td>
+          Использовать в тех случаях, когда необходимо совершить действие над какой-нибудь сущностью (задачей, заявкой, документом и т.д.) и нажатие на кнопку приводит к перезагрузке страницы в браузере.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ссылка с перезагрузкой страницы</td>
+        <td>
+          <a href="#">Аналитическая работа</a>
+        </td>
+        <td>
+          <div class="li">
+            Обычный тег <strong>a</strong> безо всяких дополнительных классов.
+          </div>
+        </td>
+        <td class="no-info"></td>
+        <td>
+          Применять для обычных ссылок
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ссылка без перезагрузки страницы</td>
+        <td>
+          <a href="#" class="in_link show-loader">Питин Владимир</a>
+        </td>
+        <td>
+          <div class="li">
+            Тег <strong>a</strong> с классами in_link и show-loader
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>in_link</td> <td></td> <td>Делает ссылку пунктирной</td></tr>
+            <tr><td>show-loader</td> <td></td> <td>Показывает вместо ссылки анимированный спиннер (анимация загрузки) при нажатии</td></tr>
+          </table>
+        </td>
+        <td>
+          Применять для ссылок, нажатие на которые не должно приводить к перезагрузке страницы
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ссылка с иконкой в 16px</td>
+        <td>
+          <a href="#" class="icon add_indicator">
+            <span>Добавить показатель</span>
+          </a>
+        </td>
+        <td>
+          <div class="li">
+            Для отображения ссылки с иконкой нужно использовать <strong>span</strong>, завернутый в <strong>a</strong> с классом icon:
+            <pre>
+&lt;a href=&quot;/indicators/new&quot; class=&quot;icon add_indicator&quot;&gt;
+  &lt;span&gt;Добавить показатель&lt;/span&gt;
+&lt;/a&gt;
+            </pre>
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>icon</td> <td></td> <td>Указывает на то, что это ссылка с иконкой</td></tr>
+            <tr><td>add_indicator</td> <td></td> <td>Задает url конкретной иконки</td></tr>
+          </table>
+        </td>
+        <td>
+          Использовать для ссылок с иконками в контекстом меню вверху контейнера контента (div#content), например: "Редактировать показатель", "Добавить надбавку", когда нажатие на ссылку ведет к перезагрузке страницы.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Поле для ввода текста</td>
+        <td>
+          <p>
+            <label for="sd_request_title">Заголовок<span class="required"> *</span></label>
+            <input id="sd_request_title" name="sd_request[title]" size="100" type="text" style="width: 100px;">
+          </p>
+        </td>
+        <td>
+          <div class="li">
+            Ширина границ поля: 1px, ширина отступов margin: 1px, ширина padding: 3px. Если поле обязательное, то оно должно быть помечено звездочкой следующим образом: в тег <strong>label</strong> добавляется тег <strong>span</strong> с классом <strong>required</strong>, например:
+            <pre>
+&lt;label for=&quot;sd_request_title&quot;&gt;Заголовок&lt;span class=&quot;required&quot;&gt; *&lt;/span&gt;&lt;/label&gt;
+            </pre>
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>required</td> <td></td> <td>Помечает текст красным, используется для указания обязательных полей</td></tr>
+          </table>
+        </td>
+        <td>
+          Использовать в формах.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Модальное окно с контентом, открывающееся по нажатию ссылки</td>
+        <td>
+          <a href="#" class="in_link click_out" id="modal-window">Открыть модальное окно</a>
+<div id="bs-modal-dynamic" class="modal I fade in" role="dialog" aria-hidden="false" style="z-index: 1061; margin-left: 0px; left: 280.45000000000005px; width: 1332.1px; top: 95.5px" data-height="80%" data-width="70%"><div class="modal-body" style="max-height: 622px;">
+<div class="tabs">
+  <ul>
+    <li><a href="#" class="" id="tab-details" onclick="showTab('details', this.href); this.blur(); return false;">Контактная информация</a></li>
+    <li><a href="#" id="tab-actions" onclick="showTab('actions', this.href); this.blur(); return false;" class="selected">Действия</a></li>
+  </ul>
+  <div class="tabs-buttons" style="display: none;">
+    <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+    <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-content-actions" style="display: block;"><div class="last_user_actions" style="margin-left: 5px;">
+      <h3><a href="/activity?from=2014-08-22&amp;user_id=961" target="_parent">Действия</a></h3>
+
+      <p>Созданные задания: 7</p>
+
+      <div id="activity">
+          <h4>22.08.2014</h4>
+          <dl>
+              <dt class="time-entry">
+                <span class="time">17:41</span>
+                <span class="project">Управление задачами (RedMine)</span>
+                <a href="/projects/redmine/issues/22507/time_entries" target="_parent">1.00 час (Задача #22507 (На проверке): Просмотр изображений с пролистыванием)</a>
+              </dt>
+              <dd><span class="description">Пришлось поработать над тем, чтобы была корректная разбивка на галереи.</span></dd>
+              <dt class="sd-journal">
+                <span class="time">17:41</span>
+                <span class="project">ЗАЯВКИ</span>
+                <a href="/sd_requests/19829" target="_parent">Заявка #я19829 (В работе): Выводить изображения в заявках всплывающим окном.</a>
+              </dt>
+              <dd><span class="description"></span></dd>
+              <dt class="time-entry">
+                <span class="time">17:39</span>
+                <span class="project">Управление задачами (RedMine)</span>
+                <a href="/projects/redmine/issues/23483/time_entries" target="_parent">1.00 час (Задача #23483 (На проверке): KPI. Фильтрация шаблонов и расчетных периодов по отделам)</a>
+              </dt>
+              <dd><span class="description"></span></dd>
+              <dt class="sd-journal">
+                <span class="time">17:39</span>
+                <span class="project">ЗАЯВКИ</span>
+                <a href="/sd_requests/21750" target="_parent">Заявка #я21750 (В работе): возможность группировать шаблоны и расчетные периоды по отделам</a>
+              </dt>
+              <dd><span class="description"></span></dd>
+              <dt class="sd-journal">
+                <span class="time">17:30</span>
+                <span class="project">ЗАЯВКИ</span>
+                <a href="/sd_requests/21750" target="_parent">Заявка #я21750 (В работе): возможность группировать шаблоны и расчетные периоды по отделам</a>
+              </dt>
+              <dd><span class="description"></span></dd>
+              <dt class="issue-edit">
+                <span class="time">17:30</span>
+                <span class="project">Управление задачами (RedMine)</span>
+                <a href="/issues/23483#change-181479" target="_parent">Задача #23483 (На проверке): KPI. Фильтрация шаблонов и расчетных периодов по отделам</a>
+              </dt>
+              <dd><span class="description">Поправил запросы, изменил интерфейс сообразно скриншоту.</span></dd>
+              <dt class="sd-journal">
+                <span class="time">16:10</span>
+                <span class="project">ЗАЯВКИ</span>
+                <a href="/sd_requests/19829" target="_parent">Заявка #я19829 (В работе): Выводить изображения в заявках всплывающим окном.</a>
+              </dt>
+              <dd><span class="description"></span></dd>
+              <dt class="issue-edit">
+                <span class="time">16:10</span>
+                <span class="project">Управление задачами (RedMine)</span>
+                <a href="/issues/22507#change-181454" target="_parent">Задача #22507 (На проверке): Просмотр изображений с пролистыванием</a>
+              </dt>
+              <dd><span class="description">Теперь отдельно есть галерея по телу заявки/задачи и отдельно по всем комментариям.</span></dd>
+              <dt class="sd-journal">
+                <span class="time">15:02</span>
+                <span class="project">ЗАЯВКИ</span>
+                <a href="/sd_requests/20966" target="_parent">Заявка #я20966 (В работе): Предлагаю добавить отчество в карточку сотрудника</a>
+              </dt>
+              <dd><span class="description"></span></dd>
+              <dt class="issue-edit">
+                <span class="time">15:02</span>
+                <span class="project">Управление задачами (RedMine)</span>
+                <a href="/issues/23066#change-181416" target="_parent">Задача #23066 (На проверке): Отчество в карточке сотрудика</a>
+              </dt>
+              <dd><span class="description">Поправил, бага была с настройками, копипастнул не подумав.</span></dd>
+          </dl>
+      </div>
+
+<p class="other-formats">Экспортировать в        <span><a href="/activity.atom?key=c931fabcf43b95c99587d491e4722402b601d42d&amp;user_id=961" class="atom" rel="nofollow">Atom</a></span>
+</p>
+</div>
+
+
+</div>
+
+</div><div class="modal-footer"><button data-dismiss="modal" id="modal-close-button" aria-hidden="true" style="vertical-align: middle;">Закрыть</button></div></div>
+        </td>
+        <td>
+          <div class="li">
+            Для отображения контента в модальном окне нужно добавить к ссылке класс <strong>link_to_modal</strong>.
+            </br>
+            Отступы сверху, справа и слева от границ модального окна до контента составляют 19px, от нижней границы контента до разделительной линии &mdash; 15px.
+            Отступы от кнопки <strong>Закрыть</strong> сверху, справа, и снизу соответственно: 14px, 15px, 15px.
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>link_to_modal</td> <td></td> <td>Указывает на то, что по нажатию на ссылку откроется модальное окно</td></tr>
+            <tr><td>click_out</td> <td></td> <td>Определяет поведение модального окна, указывает на то, что модальное окно нужно закрыть, если пользователь сделал клик за пределами модального окна</td></tr>
+          </table>
+        </td>
+        <td>
+          Использовать для того, когда нужно показать контент в модальном окне.
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td>Форма в модальном окне</td>
+        <td>
+          <a href="#" class="in_link link_to_modal click_out alert_info" id="1409015011-823425059">Открыть форму в модальном окне</a>
+
+        <div class="modal_window click_out" id="modal-1409015011-823425059" style="left: 399px; top: 655.3125px; display: none;">    <div style="font-size: 9pt">
+    <div id="surcharges_table" class="L">
+      <div class="L right_indent_10">
+    <table class="list">
+      <tbody><tr>
+        <th></th>
+        <th>Тип</th>
+        <th>Сумма</th>
+          <th></th>
+      </tr>
+
+
+        <tr class="">
+          <td><a href="#" class="click_out no_line" data-remote="true"><img alt="Hide_table_row" src="images/hide_table_row.png"></a></td>
+          <td>
+            Спорт
+              <div class="grey"></div>
+          </td>
+          <td><nobr><span class=" value">3 000</span><span class="unit rme-no">р.</span></nobr></td>
+              <td><a href="#" class="in_link icon icon-del" data-method="delete" data-remote="true" rel="nofollow"><span>Удалить</span></a></td>
+        </tr>
+        <tr class="">
+          <td><a href="#" class="click_out no_line" data-remote="true"><img alt="Show_table_row" src="images/show_table_row.png"></a></td>
+          <td>
+            Спорт
+              <div class="grey"></div>
+          </td>
+          <td><nobr><span class=" value">5 000</span><span class="unit rme-no">р.</span></nobr></td>
+              <td><a href="#" class="in_link icon icon-del" data-method="delete" data-remote="true" rel="nofollow"><span>Удалить</span></a></td>
+        </tr>
+        <tr class="">
+          <td><a href="#" class="click_out no_line" data-remote="true"><img alt="Show_table_row" src="images/show_table_row.png"></a></td>
+          <td>
+            Спорт
+              <div class="grey"></div>
+          </td>
+          <td><nobr><span class=" value">7 000</span><span class="unit rme-no">р.</span></nobr></td>
+              <td><a href="#" class="in_link icon icon-del" data-method="delete" data-remote="true" rel="nofollow"><span>Удалить</span></a></td>
+        </tr>
+        <tr class="">
+          <td><a href="#" class="click_out no_line" data-remote="true"><img alt="Show_table_row" src="images/show_table_row.png"></a></td>
+          <td>
+            Спорт
+              <div class="grey"></div>
+          </td>
+          <td><nobr><span class=" value">200</span><span class="unit rme-no">р.</span></nobr></td>
+              <td><a href="#" class="in_link icon icon-del" data-method="delete" data-remote="true" rel="nofollow"><span>Удалить</span></a></td>
+        </tr>
+    </tbody></table>
+
+      <div class="alert_info">
+        Некоторые надбавки не утверждены! Не утвержденные надбавки не будут учитываться. Любой из следующих сотрудников может утвердить надбавки:
+
+              <ul>
+          <li><a href="/users/80/ld_user_details" class="in_link show-loader " data-close-label="Закрыть" data-keyboard="true" data-modal-height="80%" data-modal-width="70%" data-save-previous-height="true" data-toggle="modal" style="">Будрин Егор</a></li>
+          <li><a href="/users/85/ld_user_details" class="in_link show-loader " data-close-label="Закрыть" data-keyboard="true" data-modal-height="80%" data-modal-width="70%" data-save-previous-height="true" data-toggle="modal" style="">Монастырев Александр</a></li>
+          <li><a href="/users/511/ld_user_details" class="in_link show-loader " data-close-label="Закрыть" data-keyboard="true" data-modal-height="80%" data-modal-width="70%" data-save-previous-height="true" data-toggle="modal" style="">Колесникова Ирина</a></li>
+          </ul>
+      </div>
+  </div>
+
+    </div>
+        <div class="L left_divider_5">
+        <form accept-charset="UTF-8" action="/kpi_user_surcharges/7349/add_surcharge" class="new_kpi_user_surcharge" data-remote="true" id="new_kpi_user_surcharge" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="dLo9ElSX2bPT+wXoNOBPaIa3KLzJ1tAl1dp/TPaoW6k="></div>
+
+        <input id="kpi_user_surcharge_kpi_period_user_id" name="kpi_user_surcharge[kpi_period_user_id]" type="hidden" value="7349">
+
+        <p style="margin-top: 0;">
+        <label for="kpi_user_surcharge_kpi_surcharge_id" required="required">Тип доплаты или надбавки</label>:<br>
+            <select id="kpi_user_surcharge_kpi_surcharge_id" name="kpi_user_surcharge[kpi_surcharge_id]"><optgroup label="Доплата"><option value="1">Связь</option></optgroup><optgroup label="Надбавка"><option value="3">Другие надбавки</option>
+<option value="8">Замещение</option></optgroup></select>
+        </p>
+
+        <p>
+        <label for="kpi_user_surcharge_value" required="required">Сумма</label>:<br>
+        <input class="base_salary_field numeric" id="kpi_user_surcharge_value" style="margin-left: 2px;" name="kpi_user_surcharge[value]" size="30" type="text">
+        </p>
+
+        <p>
+        <label for="kpi_user_surcharge_explanation">Пояснение</label>:<br>
+        <textarea class="explanation" cols="40" id="kpi_user_surcharge_explanation" name="kpi_user_surcharge[explanation]" rows="1"></textarea>
+        </p>
+
+        <input class="kpi_mark_submit_button" name="commit" type="submit" value="Добавить">
+</form>
+        </div>
+    <div class="C"></div>
+    </div>
+
+
+</div>
+
+        </td>
+        <td>
+          <div class="li">
+            Отступ сверху в обеих частях модального окна должен быть одинаков, элементы формы должны быть выровнены по горизонтали.
+            </br>
+            Подписи сверху над элементами формы должны быть стандартного шрифта и размера скина редмайна, нежирные.
+            </br>
+            Отступы слева и справа от вертикальной разделительной линии должны быть одинаковы.
+            Отступы от границ модального окна до контента &mdash; 10px со всех сторон.
+            </br>
+            Для создания ссылки используются следующие классы: in_link, link_to_modal, click_out, alert_info
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>in_link</td> <td></td> <td>Указывает на то, что ссылка с пунктиром</td></tr>
+            <tr><td>link_to_modal</td> <td></td> <td>Указывает на то, что по нажатию на ссылку будет открыто модальное окно</td></tr>
+            <tr><td>click_out</td> <td></td> <td>Определяет поведение модального окна, указывает на то, что модальное окно нужно закрыть, если пользователь сделал клик за пределами модального окна</td></tr>
+            <tr><td>alert_info</td> <td></td> <td>Показывает иконку предупреждения справа от ссылки</td></tr>
+          </table>
+        </td>
+        <td>
+          Использовать, когда нужно предоставить пользователю возможность редактирования форм без перезагрузки страницы, а сами формы должны быть изначально спрятаны, чтобы не перегружать интерфейс.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Строка таблицы при наведении на нее</td>
+        <td>
+        <table class="list patterns">
+          <tr>
+            <td>
+              <a href="#">Бухгалтер аптечной сети</a>
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td>
+          <div class="li">
+            <span style="background-color: #ffffdd; display: inline-block; padding: 5px;">Строки таблиц при наведении на них должны менять цвет на #ffffdd.</span>
+          </div>
+        </td>
+        <td class="no-info"></td>
+        <td class="no-info"></td>
+      </tr>
+
+      <tr>
+        <td>Счетчик</td>
+        <td>
+          Неправильно:
+          <h3>Оценки</h3>
+          <ul>
+            <li>
+              <a href="#" class="no_line"><span>Пожаловаться или похвалить</span></a> (0)
+            </li>
+            <li>
+            <a href="#" class="no_line "><span>Согласовать надбавки </span></a>
+               (8)
+            </li>
+          </ul>
+          </br>
+          Правильно:
+          <ul>
+            <li>
+              <a href="#" alt="Сотрудники, у которых на текущий месяц отсутствует схема мотивации" class="" title="Сотрудники, у которых на текущий месяц отсутствует схема мотивации"><span>Сотрудники без мотивации</span></a>
+                <span data-id="b6dfb9162af1f15db23d18e298ceb6d4" class="ac_counter count ac_light" data-url="/kpi_period_reports/ajax_counter" data-period="3600">1</span>
+            </li>
+          </ul>
+          </br>
+        </td>
+        <td>
+          <div class="li">
+            Число счетчика должно быть завернуто в <strong>span</strong> с классом <strong>count</strong>. Опциально можно применять один из дополнительных классов: <strong>ac_light</strong>, <strong>unread</strong>, <strong>updated</strong>.
+            </br>
+            Цвет текста счетчика: #fff. Высота счетчика 12px.
+            </br>
+            В верхнем меню отступ слева от счетчика должен составлять 5px.
+            </br>
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>count</td> <td></td> <td>
+              <span class="ac_counter count">1</span>
+              Задает весь внешний вид счетчика, фон темно-зеленый (#077C10)</td></tr>
+            <tr><td>ac_light</td> <td></td> <td>
+              <span class="ac_counter count ac_light">1</span>
+              Задает светло-зеленый фон (#40A348)</td></tr>
+            <tr><td>unread</td> <td></td> <td>
+              <span class="ac_counter count unread">1</span>
+              Задает светло-зеленый фон (#c3e26b). Применять для счетчика непрочитанных: сообщений, оценок, отзывов, etc</td></tr>
+            <tr><td>updated</td> <td></td> <td>
+              <span class="ac_counter count updated" style="background-color: #76a8d7;">1</span>
+              Задает синий фон(#76a8d7). Применять для счетчика прочитанных, но изменивших свой статус сущностей (например заявок)</td></tr>
+          </table>
+        </td>
+        <td>
+          Использовать везде, где нужно отобразить счетчик чего-либо.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Выделенная строка таблицы</td>
+        <td>
+          <table class="list issues">
+            <tbody>
+              <tr id="issue-15755" class="hascontextmenu even issue tracker-3 status-1 priority-4 priority-default created-by-me assigned-to-me highlighted">
+                <td class="id">
+                  <input name="ids[]" style="display:none;" type="checkbox" value="15755">
+                  <a href="/issues/15755">15755</a>
+                </td>
+                <td class="project"><a href="/projects/cute-docs">Cute docs</a></td>
+                <td class="tracker">Задача</td>
+                <td class="subject">
+                  <a href="/issues/15755">Проверка прогресс-бара</a> (Новая)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <div class="li">
+            Строка таблицы с красным цветом фона (#f9f2e2).
+          </div>
+        </td>
+        <td class="no-info">
+        </td>
+        <td>
+          Использовать, когда необходимо выделить для пользователя информацию в строке таблицы.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Заголовок контейнера контента</td>
+        <td style="padding: 0;">
+          <div id="content" style="min-height: 100px; margin-right: 0;">
+            <div class="contextual">
+            <div class="kpi_date_links">
+              <a href="#" class="in_link link_to_modal no_line static_content_only in_link selected  " id="1409017814-366541043"><span>июля 2014 </span></a><div class="modal_window " id="modal-1409017814-366541043" style="display: none;"><div class="L year_months"><b>2014</b><br><a href="#" class="no_line selected "><span>июля</span></a></div></div>
+            </div>
+            </div>
+            <h2>
+              <img alt="" class="gravatar" default="mm" rating="PG" src="http://www.gravatar.com/avatar/5a170c50babcd829491994667496894c?rating=PG&amp;size=24&amp;default=mm" ssl="false" style="margin-bottom: 1px;" title="">
+              <a href="#" alt="Посмотреть личную характеристику" class="in_link show-loader" data-close-label="Закрыть" data-keyboard="true" data-modal-height="80%" data-modal-width="70%" data-save-previous-height="true" data-toggle="modal" title="Посмотреть личную характеристику">Глухов Алексей</a>.Результативность
+            </h2>
+          </div>
+        </td>
+        <td>
+          <div class="li">
+            Заголовок страницы должен быть оформлен тегом <strong>h2</strong>. В контекстом меню справа отступы сверху и снизу должны быть одинаковы.
+            </br>
+            Если в заголовке используется аватарка (helper-метод gravatar), отступы от аватарки до контейнера контента сверху, снизу, слева должны быть: 8px, 1px, 15px соответственно, margin-right: 4px.
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr><td>contextual</td> <td></td> <td>Класс div-контейнера контекстного меню</td></tr>
+            <tr><td>gravatar</td> <td></td> <td>Класс img тега аватарки</td></tr>
+          </table>
+        </td>
+        <td>
+          Шапка контента должна быть везде.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Заголовок комментария и истории</td>
+        <td style="padding: 0;">
+          <div id="content" style="min-height: 100px; margin-right: 0;">
+            <div class="H">
+              <div id="change-116933" class="journal has-notes has-details" style="display: block;">
+                <div id="note-2">
+                  <h4>
+                    <a href="#" class="journal-link">#2</a>
+                    <img alt="" class="gravatar" default="mm" rating="PG" src="http://www.gravatar.com/avatar/30b601af9dd85196e0f944be875e3f2f?rating=PG&amp;size=24&amp;default=mm" title="">
+                    Обновлено <a href="/users/69/ld_user_details" class="in_link show-loader ">Ковалевский Василь</a>
+                    <a href="#" title="06.05.2014 11:15">4 месяца</a> назад
+                  </h4>
+
+                  <ul class="details" style="display: block;">
+                     <li>Параметр <strong>Обновил</strong> изменился с <i>user Deleted</i> на <i>Ковалевский Василь</i></li>
+                  </ul>
+                  <div class="wiki editable" id="journal-116933-notes">
+                    <div class="contextual">
+                    <a href="#" rel="nofollow" title="Цитировать" class="quote-link">
+                      <img alt="Comment" src="images/comment.png">
+                    </a>
+                      <a href="#" title="Редактировать">
+                        <img alt="Edit" src="images/edit.png">
+                      </a>
+                    </div>
+                  <p>цукцукцук</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="li">
+            Заголовок комментария состоит из тега заголовка <strong>h4</strong>, и тега <strong>img</strong> с классом <strong>gravatar</strong> внутри него (плюс текст также внутри заголовка).
+<pre>
+  &lt;h4&gt;
+    &lt;a href=&quot;#&quot; class=&quot;journal-link&quot;&gt;#2&lt;/a&gt;
+    &lt;img alt=&quot;&quot; class=&quot;gravatar&quot; default=&quot;mm&quot; rating=&quot;PG&quot;
+    src=&quot;bla-bla-bla&quot; title=&quot;&quot;&gt;
+    Обновлено &lt;a href=&quot;/users/69/ld_user_details&quot; class=&quot;in_link show-loader &quot;&gt;Ковалевский Василь&lt;/a&gt;
+    &lt;a href=&quot;#&quot; title=&quot;06.05.2014 11:15&quot;&gt;4 месяца&lt;/a&gt; назад
+  &lt;/h4&gt;
+</pre>
+          </div>
+        </td>
+        <td class="no-info">
+        </td>
+        <td class="no-info">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Списки в сайдбаре</td>
+        <td>
+          <div id="sidebar" style="float: none;">
+            <h3>Задачи</h3>
+            <ul>
+              <li><a href="#">Просмотреть все задачи</a></li>
+              <li><a href="#">Краткое описание</a></li>
+            </ul>
+            <h3>Категории</h3>
+            <ul>
+              <li>
+                <a href="#">KPI</a>
+              </li>
+              <li>
+                <a href="#">Service Desk</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+        <td>
+          <div class="li">
+            HTML-код списка в сайдбаре:
+            <pre>
+&lt;h3&gt;Задачи&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Просмотреть все задачи&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Краткое описание&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+            </pre>
+            Отступ от текста элемента списка до левого края заголовка составляет 30px.
+            </br>
+            Отступы от заголовка списка: 14px сверху, 10px снизу.
+          </div>
+        </td>
+        <td>
+          Достаточно, чтобы элементы лежали в div с id="sidebar".
+        </td>
+        <td>
+          В боковом меню для оформления списков ссылок.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Большой прелоадер</td>
+        <td>
+          <div class="big_loader"></div>
+        </td>
+        <td>
+          <div class="li">
+            Нужно просто добавить к контейнеру (обычно это <strong>div</strong>) класс "big_loader".
+          </div>
+        </td>
+        <td>
+          <table class="list2">
+            <tr>
+              <td>big_loader</td> <td></td> <td>добавляет анимацию загрузки</td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          Применять во время асинхронной подгрузки контента в части страницы.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Выпадающее меню</td>
+        <td>
+          <div class="popover fade bottom in" style="display: block; position: relative;">
+            <div class="arrow" style="position: relative;"></div>
+            <h3 class="popover-title"></h3>
+            <div class="popover-content">
+              <div class="menu_block">
+                <div>
+                  <a href="#" class="no_line"><span>Моя результативность</span></a>
+                </div>
+                <div>
+                  <a href="#" class="no_line"><span>Согласовать надбавки</span></a>
+                  <span class="ac_counter count ac_light surcharges_for_approving" data-period="7200">8</span>
+                </div>
+                <div>
+                  <a href="#" class="no_line"><span>Поставить оценки</span></a>
+                  <span class="ac_counter count ac_light my_marks_actual" data-period="1800"></span>
+                </div>
+                <div>
+                  <a href="#" class="no_line"><span>Заполнить сквозные показатели</span></a>
+                  <span class="ac_counter count ac_light imported_values" data-period="7200"></span>
+                </div>
+                <div>
+                  <a href="#" class="no_line"><span>Согласовать аванс</span></a>
+                  <span class="ac_counter count ac_light actual_prepayments_to_approve" data-period="7200"></span>
+                </div>
+                <div>
+                  <a href="#" class="no_line"><span>Подтвердить выдачу аванса</span></a>
+                  <span class="ac_counter count ac_light actual_dep_prepayments_to_confirm" data-period="300"></span>
+                </div>
+                <div>
+                  <a href="#" class="no_line"><span>Выплата аванса </span></a>
+                  <span class="ac_counter count ac_light actual_prepayments_to_paid" data-period="30"></span>
+                </div>
+              </div>
+
+              <div class="menu_block_title">
+                <div class="title">Администрирование</div>
+              </div>
+              <div>
+                <a href="#" class="no_line"><span>Показатели результативности</span></a>
+              </div>
+              <div>
+                <a href="#" class="no_line"><span>Шаблоны расчета</span></a>
+              </div>
+              <div>
+                <a href="#" class="no_line"><span>Расчетные периоды</span></a>
+              </div>
+              <div>
+                <a href="#" class="no_line"><span>Сквозные показатели</span></a>
+              </div>
+              <div>
+                <a href="#" class="no_line "><span>Надбавки</span></a>
+              </div>
+              <div>
+                <a href="#"><span>Обновление оценок</span></a>
+              </div>
+              <div>
+                <a href="#"><span>Права</span></a>
+              </div>
+              <div>
+                <a href="#" class="no_line"><span>Выполнение процедур</span></a>
+              </div>
+              <div>
+                <a href="#" class="no_line"><span>Индивидуальные показатели</span></a>
+              </div>
+              <div>
+                <a href="#" class="no_line"><span>Грейд-степы</span></a>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="li">
+            Отступ от контента до верхней и нижней границы 10px, по бокам &mdash; 15px; граница всплывающего окна: 1px solid #000 с прозрачностью 0.2. Радиус закругления углов: 6px.
+            Разделитель групп пунктов меню: 1px solid #ccc, отступы сверху и снизу от разделителя по 10px.
+                      <pre>
+&lt;div class=&quot;popover fade bottom in&quot; style=&quot;display: block; position: relative;&quot;&gt;
+  &lt;div class=&quot;arrow&quot; style=&quot;position: relative;&quot;&gt;&lt;/div&gt;
+  &lt;h3 class=&quot;popover-title&quot;&gt;&lt;/h3&gt;
+  &lt;div class=&quot;popover-content&quot;&gt;
+    &lt;div class=&quot;menu_block&quot;&gt;
+      &lt;div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;no_line&quot;&gt;&lt;span&gt;Моя результативность&lt;/span&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;a href=&quot;#&quot; class=&quot;no_line&quot;&gt;&lt;span&gt;Согласовать надбавки&lt;/span&gt;&lt;/a&gt;
+        &lt;span class=&quot;ac_counter count ac_light surcharges_for_approving&quot; data-period=&quot;7200&quot;&gt;8&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;menu_block_title&quot;&gt;
+      &lt;div class=&quot;title&quot;&gt;Администрирование&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;a href=&quot;#&quot; class=&quot;no_line&quot;&gt;&lt;span&gt;Показатели результативности&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </pre>
+          </div>
+        </td>
+        <td>
+         см. слева.
+        </td>
+        <td>
+          Применять для верхнего меню.
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>
+
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

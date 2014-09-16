@@ -1,0 +1,493 @@
+/* --- styles for user details --- */
+
+.uneditable {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 90%;
+  background-color: #eee;
+}
+table.ld-user-info tr td div.surname_head {
+  margin-top: 0px;
+  font-size: 23px;
+  color: #336666;
+  font-weight: bold;
+  font-family: Tahoma;
+}
+
+table.ld-user-info tr td div.name {
+  margin-top: 0px;
+  font-size: 19px;
+  letter-spacing: 3px;
+  color: #336666;
+  font-family: Tahoma;
+}
+
+table.ld-user-info tr td div.birthday,
+table.ld-user-info tr td div.email,
+table.ld-user-info tr td div.position {
+/*  background-image: url('../images/divider.gif');
+  background-repeat: repeat-x;
+  background-position: bottom;*/
+  padding-bottom: 10px;
+  line-height: 1.5;
+  border-bottom: 1px solid #ccc;
+}
+
+table.ld-user-info tr td div.position {
+  font-size: 12px;
+}
+
+table.ld-user-info tr td div.otherphone,
+table.ld-user-info tr td div.birthday table.ld-user-info tr td div.phone,
+table.ld-user-info tr td div.email,
+table.ld-user-info tr td div.employee,
+table.ld-user-info tr td div.staff {
+  font-size: 13px;
+}
+
+.ld-h6 {
+  color: #575656;
+  display: inline;
+  font-size: 10pt;
+  margin-right: 3px;
+  font-weight: normal;
+}
+
+table.sqltable {
+  width: 100%;
+  border: none;
+}
+
+table.sqltable tr:nth-child(odd) {
+  background-color: #D9E6E3;
+}
+
+table.sqltable tr:nth-child(even) {
+  background-color: #EBF1EC;
+}
+
+table.ld-user-info tr {
+  vertical-align: top;
+}
+
+table.ld-user-info tr td .department {
+  background-color: #f9efde;
+  padding: 3px 3px 3px 1px;
+}
+
+table.ld-user-info tr td div {
+  margin-top: 10px;
+}
+
+a.in_link span.ld_lastname {
+  border-bottom: none;
+}
+
+span.ld_lastname {
+  font-weight: bold;
+}
+
+table.sqltable span.ld_lastname {
+  font-size: 13px;
+  font-weight: bold;
+  display: block;
+}
+
+div.employee a {
+  font-size: 15px;
+}
+
+.ld_alarm {
+  background-color: #c21111;
+  padding: 2px;
+  color: #fff;
+}
+
+div.ld_photo {
+  border: 1px solid #D9E6E3;
+  padding: 5px;
+  margin-right: 10px;
+  overflow: auto;
+  background-color: #EBF1EC;
+}
+
+span.ld-big-info {
+  font-size: 17px;
+}
+
+a.ld_complain {
+  background-image: url(../images/thumb-down.png);
+  background-repeat: no-repeat;
+  background-position: 4px 5px;
+  padding: 6px 9px 6px 32px;
+  font-size: 17px;
+  text-decoration: none;
+  border-bottom: none;
+  float: left;
+  display: block;
+  background-color: #D2552D;
+  color: #fff;
+  border-radius: 3px;
+  margin: 5px;
+}
+
+a.ld_praise {
+  background-image: url(../images/thumb-up.png);
+  background-repeat: no-repeat;
+  background-position: 4px 2px;
+  padding: 6px 9px 6px 32px;
+  font-size: 17px;
+  text-decoration: none;
+  border-bottom: none;
+  float: left;
+  display: block;
+  background-color: #208A20;
+  color: #fff;
+  border-radius: 3px;
+  margin: 5px;
+}
+a.ld_praise > span {
+  border-bottom: 1px solid;
+}
+a.ld_complain > span {
+  border-bottom: 1px solid;
+}
+/* --- styles for user details ends --- */
+
+.tabs ul li {
+  float: left;
+  list-style-type: none;
+  white-space: nowrap;
+  margin-right: 4px;
+  background: #fff;
+  position: relative;
+  margin-bottom: -1px;
+}
+
+.admin-menu-user-departments {
+  background-image: url(../images/departments.png);
+}
+
+.admin-menu-user-titles {
+  background-image: url(../images/titles.png);
+}
+.admin-menu-user-offices {
+  background-image: url(../images/offices.png);
+}
+.admin-menu-user-titles-grades {
+  background-image: url(../images/star.png);
+}
+
+
+.ld_phone_cell {
+  background-image: url(../images/cell_phone.png);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  padding-left: 16px;
+  text-decoration:none;
+  border: 0px;
+}
+.ld_phone_work {
+  background-image: url(../images/work_phone.png);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  padding-left: 16px;
+  text-decoration: none;
+  border: 0px;
+}
+.ld_phone_home {
+  background-image: url(../images/home_phone.png);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  text-decoration: none;
+  border: 0px;
+}
+.ld_phone_city {
+  background-image: url(../images/home_phone.png);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  padding-left: 16px;
+  text-decoration: none;
+  border: 0px;
+}
+.ld_user_info {
+  padding: 0 2px;
+}
+.ld_user_avatar {
+  margin-right: 10px;
+}
+.ld_user_name {
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+.ld_info_block {
+  padding-bottom: 1px;
+}
+.ld_user_inf {
+  margin: 2px 0;
+}
+.list-container label {
+  display: block;
+}
+
+.ui_dragged {
+  border: 1px dotted #999;
+  opacity: 0.7;
+}
+
+.ui_collector {
+  background-color: #cec;
+}
+
+.gray_small_link {
+  font-size: 0.7em;
+  color: #ccc;
+}
+
+.cut_view {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.lower_divider
+{
+  border-bottom: 1px solid #DDD;
+  margin: 0 0 5px 0;
+  padding: 0 0 5px 0;
+}
+
+/*div.bottom-bordered { border: none; border-bottom: solid 1px #ccc; }*/
+td.button_area {width:80px; text-align:right;}
+th.button_area {width:80px; text-align:right;}
+
+.dep_node {width: 100%; padding: 1px;}
+.dep_node:hover {background-color: #ffffdd;}
+
+form.group_set_form {display: none;}
+
+.right-marg {margin-right: 5px;}
+
+label.one-name {display:block;}
+
+.icon-only {
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 11px;
+  text-decoration: none;
+  border:0px;
+}
+
+.icon-only:link { border:0px; text-decoration:none; }
+.icon-only:hover { border:0px; text-decoration:none; }
+.icon-only:visited { border:0px; text-decoration:none; }
+
+.btn {
+height: 16px;
+border:solid 1px #ccc;
+background-color: #FAFAFA;
+display: inline-block;
+cursor: pointer;
+padding:3px;
+padding-bottom: 4px;
+
+text-align: center;
+text-decoration: none;
+vertical-align: middle;
+margin: 2px;
+box-sizing: content-box;
+-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+}
+
+.btn:link { border:solid 1px #ccc; }
+.btn:visited { border:solid 1px #ccc; }
+
+.btn:hover {
+  text-decoration: none;
+  border:solid 1px #ccc;
+}
+
+.btn-def {
+color:#000;
+height: 16px;
+background-image: -webkit-linear-gradient(top, #fff, #ccc);
+background-image: -moz-linear-gradient(top, #fff, #ccc);
+background-image: -ms-linear-gradient(top, #fff, #ccc);
+border:solid 1px #999;
+border-bottom-color: #666;
+border-radius: 4px;
+background-color: #ddd;
+background-repeat: repeat-x;
+display: inline-block;
+cursor: pointer;
+padding: 3px 7px;
+text-align: center;
+text-decoration: none;
+vertical-align: middle;
+margin: 2px;
+box-sizing: content-box;
+-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+font-family: Verdana, sans-serif;
+font-size: 12px;}
+
+.btn-def:hover {text-decoration: none;
+  background-image: -webkit-linear-gradient(top, #fff, #cdf);
+  background-image: -moz-linear-gradient(top, #fff, #cdf);
+  background-image: -ms-linear-gradient(top, #fff, #cdf);
+  background-color: #cdf;
+  border:solid 1px #999;
+  border-bottom-color: #666;
+  color:#000;
+}
+
+.btn-def:link {text-decoration: none;
+  border:solid 1px #999;
+  border-bottom-color: #666;
+  color:#000;
+}
+
+.btn-def:visited {text-decoration: none;
+  border:solid 1px #999;
+  border-bottom-color: #666;
+  color:#000;
+}
+
+.btn-right {float:right;}
+
+
+img.img-m {vertical-align: middle;}
+img.img-b {vertical-align: text-bottom;}
+
+ul.nav-menu{padding-left: 15px;}
+
+
+input.find-filter {
+  background-clip: border-box;
+  background-image: url(../images/magnifier.png);
+  background-repeat: no-repeat;
+  background-position: 2px 50%;
+  border: solid 1px #bbb;
+  border-radius: 4px;
+  color: black;
+  margin: 1px;
+  padding: 1px;
+  padding-left: 20px;
+  text-indent: 0px;
+  vertical-align: middle;
+  width: 100%;
+  height: 24px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div.list-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+  height: 330px;
+  margin-bottom: 1em;
+}
+.ld-namer label {
+  font-weight: bold;
+}
+span.ldap_unit {
+  position: relative;
+  top: 2px;
+  font-weight: normal;
+  font-size: 0.8em;
+  color: #C2C2C2;
+/*  float: right;
+  margin-left: -20px;*/
+}
+span.ldap_value {
+  padding-left: 6px;
+  margin-right: 6px;
+}
+
+.ldap_show_all_users {
+  margin-top: 6px;
+}
+
+#user-perfomance-main-info {
+  float: left;
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 1px solid #999;
+}
+#user-perfomance-details {
+
+}
+
+.details-perfomance-menu
+{
+    padding: 0px;
+    margin-bottom: 10px;
+}
+.details-perfomance-menu li
+{
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.date-filter span {
+  margin-left: 5px;
+}
+
+.date-filter input {
+  margin-left: 5px;
+}
+
+div#perfomance-marks img {
+  vertical-align: bottom;
+}
+
+table#praises-complains {
+  margin-top: 1em;
+}
+
+.user-perfomance-block {
+  margin-top: 1em;
+}
+
+.personal-effectiveness-unit {
+  color: #C2C2C2;
+  margin-left: 0.5em;
+}
+
+.birthday-highlight {
+  background-color: rgba(255, 210, 213, 0.27);
+}
+.birthday-header {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.birthday-header div {
+  margin-left: 0.5em;
+  line-height: 32px;
+  display: inline-block;
+}
+.birthday-header h3 {
+  margin-bottom: 0;
+  color: #F30E0E;
+}
+
+.birthdays-block-header {
+  border-top-color: #fff !important;
+  border-left-color: #fff !important;
+  border-right-color: #fff !important;
+}
+
+table.list tbody tr.birthdays-block-header:hover {
+  background-color: #fff !important;
+}
+
+#block-header :hover {
+  background-color: #fff !important;
+}
+
